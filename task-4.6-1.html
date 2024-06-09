@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+ <script>
+    /* 1. Write a JavaScript program that accept two integers and
+ * display the larger.Go to the editor */
+/******* Start Your Code *********/
+    if (5 > 4) {
+        console.log("5 greater than 4")
+    }else {
+        console.log("4 greater than 5")
+    }
+
+
+    /* 2. Write a JavaScript conditional statement to find the sign
+     of product of three numbers. Display an alert box with the 
+     specified sign. Go to the editor 
+    Sample numbers : 3, -7, 2 
+    Output : The sign is - */
+        /******* Start Your Code *********/
+       
+    function sginOfProduct(a, b, c) {
+        product = a * b * c
+        if (product > 0)
+            return 'the sign is +'
+        else if (product < 0)
+            return 'the sign is -'
+    }
+
+    let checkSign = sginOfProduct(-2, -3, 4);
+    // alert (checkSign)
+
+
+    /* 3. Write a JavaScript conditional statement to sort three numbers. Display an alert box to show the result. Go to the editor
+    Sample numbers : 0, -1, 4 
+    Output : 4, 0, -1 */
+    
+    // solution
+    
+    let numbers = [0, -1, 4]
+    function sortnumbers(array){
+        array.sort((a, b) => a -b )
+    }
+
+    sortnumbers(numbers);
+    alert(numbers)
+
+
+
+
+
+    /*4. Write a JavaScript conditional statement to find the largest of five numbers.
+    Display an alert box to show the result. Go to the editor 
+    Sample numbers : -5, -2, -6, 0, -1 
+    Output : 0 */
+
+        // solution
+    // if (0> -1 && 0 > -2 && 0 > -5 && 0 > -6) {
+    //     alert(0)
+    // }
+
+
+
+     /* 5.Write the if statement to display "Hello World" if x is greater than y, otherwise alert "Goodbye".*/
+        /******* Start Your Code *********/
+
+    // solution
+
+
+
+ 
+    // function myfunction2(x, y){
+    //     if (x > y){
+    //         alert('Hello World')
+    //     } else alert("Goodbye")
+    // }
+    
+    
+        //  way 2 :
+
+
+        // let x = 5;
+        // let y = 4;
+        // if(x > y) {
+        //     alert("Hello World")
+        // }else {
+        //     alert("Goodbye")
+        // }
+
+
+
+
+
+
+
+
+
+//   task 2
+
+
+    /* 1. Write a JavaScript program that returns rate as text
+    less than 50 return ==> Fail
+    equal or between 50 and 59 ===> E
+    equal or between 60 and 69 ===> D
+    equal or between 70 and 79 ===> C
+    equal or between 80 and 89 ===> B
+    equal or between 90 and 100 ===> A
+    */
+    
+    var x = (v) => {
+            if (50 <= v && v <= 59){
+                return 'E';
+            }else if (60 <= v && v <= 69) {
+                return 'D';
+            } else if (70 <= v && v <= 79) {
+                return 'C';
+            } else if (80 <= v && v <= 89) {
+                return 'B';
+            } else if (90 <= v && v <= 100) {
+                return 'A';
+            }else if ( v < 50){
+                return 'fail'
+            }else {
+                return ' '
+            }
+    }
+
+      console.log(x(90));
+
+
+
+
+// task 3
+
+
+
+
+    // 1. Write a JS code to print numbers from 1 to 10
+
+    
+    for ( i = 0 ; i <= 10; i++){
+        console.log(i);
+    }
+    
+
+
+
+
+
+
+
+    /*2. Write a JS code to print Even numbers in arr :
+       var arr = [13,23,12,45,22,48,66,100]
+    */
+    var arr = [13, 23, 12, 45, 22, 48, 66, 100]
+    for (i = 0 ; i<arr.length; i++){
+        if (arr[i]%2 == 0){
+        console.log(arr[i])
+        }   
+    }
+
+
+
+
+
+
+
+    // 3. Write a JS code to print a pattern using for loop
+
+    //     1 
+    //     1 2
+    //     1 2 3
+    //     1 2 3 4
+    //     1 2 3 4 5
+    //     1 2 3 4 5 6
+    //     1 2 3 4 5 6 7
+    //     1 2 3 4 5 6 7 8
+
+    //         * /
+    //     /*
+    //     Check if a string contains the letter “y”. Print “yes” if it does and “no” if it does not.
+    //    let x = "don’t know why"
+       
+    //    */
+
+
+
+    var z = "";     
+    for ( let i = 0; i <= 8; i++){
+        for (v =1; v <= i; v++){
+            z = z + v +" ";
+        }
+        z = z + "\n";
+    }
+    console.log(z);
+// 
+    if (z.includes("y")){
+         console.log("yes");
+    } else
+        console.log("don’t know why");
+       
+
+
+
+ </script>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <div id="yellowbox">
+        Can I Help You
+    </div>
+    
+
+    <div class="flags">
+    <label> country ?</label>
+    <select name="flags" id="flags" onchange="change(this.value)">
+        <option value="images/jordan flag.png">jordan</option>
+        <option value="images/Palestine flag.svg">Palastine</option>
+    </select>
+    <div>
+        <img src="images/jordan flag.png" id="image-1">
+    </div>
+
+
+
+    <div class ='con-1'></div>
+    <label for="select1"> Font Family</label>
+    <select id="select1">
+        <option value="Times New Roman" id="opt1">Times New Roman</option>
+        <option value="fantasy" id="opt2">fantasy</option>
+    </select>
+    <label for="select2">Font Size</label>
+    <select id="select2">
+        <option value="10px">10 px</option>
+        <option value="15px">15 px</option>
+        <option value="20px">20 px</option>
+        <option value="25px">25 px</option>
+    </select>
+    <label for="select3"> Color</label>
+    <select name="colortext" id="select3">
+        <option value="red">Red</option>
+        <option value="blue">blue</option>
+        <option value="green">green</option>
+    </select>
+    <label for="select4">Letter Space</label>
+    <select name="letterspace" id="select4">
+        <option value="2px">2px</option>
+        <option value="4px">4px</option>
+        <option value="6px">6px</option>
+    </select>
+    <input type="checkbox" id="check1" value="italic">Italic
+    <input type="checkbox" id="check2">Bold
+    <input type="checkbox" id="check3">Underline
+    </div>
+    
+    <div id="con-2"> The quick brown fox over the lazy dog </div>
+
+
+    <div id="changecolor">  </div>
+
+    <hr><hr>
+    <div id="information">
+        Password (min 6 characters):<input type="password" id="input1" placeholder=" Password" value=""><span id="log1"></span> <br>
+        Repeat Password:<input type="password" id="input2" placeholder="Repeat" value=""><span id="log2"></span><br>
+        <button id="button"> Submit</button>
+    </div>
+
+<hr>
+
+
+    <input type="text" id="addsongfield">
+    <button id="addsongbtn">Add Song</button>
+    <ul id="songlist">
+        <li>My Favorite Song</li>
+        <li>My Second Favorite Song</li>
+        <li>I like This One Two</li>
+    </ul>
+    
+
+
+
+
+
+    <script src="script.js"></script>
+</body>
+</html> 

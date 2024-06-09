@@ -1,0 +1,78 @@
+#yellowbox {
+    width: 90%;
+    height: 90px;
+    padding-top: 20px;
+    background-color: yellow;
+    font-weight: 800;
+    font-size: 30px;
+    border: 2px solid black;
+    text-align: center;
+}
+
+#image-1 {
+    width: 30%;
+    padding: 20px;
+}
+
+.con-1 {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+}
+
+.flags {
+    padding: 20px;
+}
+
+#con-2 {
+    border: 2px solid black;
+    width: 80%;
+    height: 20vh;
+    margin-top: 20px;
+    padding: 10px;
+}
+
+#changecolor {
+    width: 200px;
+    height: 200px;
+    margin-top: 20px;
+}
+
+
+#information {
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: 800;
+}
+
+#input2 {
+    margin-left: 96px;
+    margin-top: 20px;
+}
+
+
+#log1, #log2 {
+    color: red;
+    margin-left: 10px;
+    font-size: medium;
+}
+
+#button {
+    visibility: hidden;
+}
+
+.songs {
+    margin: 10px;
+}
+
+#songlist li {
+    width: 15.5%;
+    background-color: rgba(235, 235, 235, 0.601);
+    font-size: 1.1em;
+    font-weight: 600;
+    text-align: start;
+    border-top-left-radius: 4 px;
+    margin-left: -40px;
+    padding: 10px;
+    border: 1px solid black;
+}
