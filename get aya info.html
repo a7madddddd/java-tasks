@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .mb-3{
+           background-color: gray;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">ID</label>
+            <input type="email" class="form-control" id="ayaid" aria-describedby="emailHelp">
+            <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Name</label>
+            <input type="text" class="form-control" id="name1">
+        </div>
+        <div class="mb-3 form-check">
+            <!-- <input type="checkbox" class="form-check-input" id="exampleCheck1"> -->
+            <!-- <label class="form-check-label" for="exampleCheck1">Check me out</label> -->
+        </div>
+        <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
+    </form>
+    <script type="text/javascript">
+         const url = 'https://66681676f53957909ff67af8.mockapi.io/users/Students'
+        async function getdata(){
+             const response = await fetch (url);
+            // console.log('response', response);
+            const datajson = await response.json();
+            // console.log('datajson', datajson)
+
+
+        const ayainfo = datajson[4]
+        console.log('ayainfo', ayainfo )
+        document.getElementById('ayaid').value = ayainfo.id
+        document.getElementById('name1').value = ayainfo.name
+
+
+    }        
+    getdata();
+
+    </script>
+</body>
+</html>

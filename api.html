@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    #img {
+        width: 200px;
+        height: 200px;
+    }
+    </style>
+</head>
+<body>
+    Animals :
+    
+    <div class="animals">  
+    <select id="animal"  onchange=change_image(this.value)> 
+      
+       
+    </select>
+
+    <br>
+
+    <div class="animals2">
+        
+        <img id="img" src="cat.png" alt="">
+        <h3 id="animal-name"></h3>
+
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+    
+    <!-- <form id="form">
+    <label >Name :</label> <input type="text" id="fname"><br><br>
+    <label>Age :</label><input type="text" id="age"><br><br>
+    <label>Gender :</label><input type="text" id="gender"><br><br>
+   <label>Birth Date:</label> <input type="date" id="birth">
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <label >Description :</label> <input type="text" id="Description"><br><br>
+    <label >Major && University :</label> <input type="text" id="Major"><br><br>
+    <label >Programming Language:</label><input type="checkbox" id="html">Html  <input type="checkbox" id="css">Css <input type="checkbox" id="js">Js
+    <br>
+    <br>
+    <br>
+    <br>
+    <label >Sibling number:</label><br>
+    <input type="text" id="snumber"><br><br>
+    <label >Description of Sibling</label><br>
+    <input type="text" id="sdes"><br><br>
+    <button id="sub"> Submit</button>
+    </form>
+    <div id="cards"></div> -->
+
+   <form id="userForm">
+
+        <label>Name: <input type="text" id="name"  ></label> <br><br>
+        <label>Age:  <input type="number" id="age"  ></label><br><br>
+        <label>Gender:  <input type="text" id="gender"  ></label><br><br>
+        <label>Birth Date:  <input type="birthDate" id="birthDate"  ></label><br><br>
+        <label>Your Image: <input type="url" id="image"   ></label> <br><br>
+        
+        <br>
+        <label>Description: </label><input type="text" id="description"  ><br><br>
+        <label>Major & University: </label><input type="text" id="majorUniversity"><br><br>
+        <label>Programming Language:</label>
+            <input type="checkbox" id="html" value="HTML"> HTML
+            <input type="checkbox" id="css" value="CSS"> CSS
+            <input type="checkbox" id="js" value="JS"> JS
+        <br>
+
+        <hr>
+        <label>Siblings Number: <input type="number" id="siblingsNumber"  ></label><br><br>
+        <label>Description of Siblings: <input type="text" id="siblingsDescription"  ></label><br><br>
+        <button type="submit">Submit</button>  
+        
+    </form>
+    </div>
+    <h2>Submitted Cards</h2>
+    <div id="cardsContainer" class="card"></div>
+
+
+
+
+
+
+
+
+
+
+    <br>
+    <br><br>
+    <form id="form2">
+        <label for="">Enter a Fname: <br></label><input type="text" required><span id="log1" ></span><br><br>
+        <label for="">Enter a Lname: <br></label><input type="text" required><span id="log2"></span><br><br>
+        <label for="">Enter Bdate: <br></label><input type="text" required><span id="log3"></span><br><br>
+        <label for="">Enter an Email : <br></label><input type="text" required><span id="log4"></span><br><br>
+        <label for="">Confirm Email : <br></label><input type="text" required><span id="log5"></span><br><br>
+        <label for="">Password: <br></label><input type="text" required><span id="log6"></span><br><br>
+        <label for="">Confirm Password: <br></label><input type="text" required><span id="log7"></span><br><br>
+    </form>
+    
+
+
+
+
+
+
+
+
+
+  
+
+
+    <script>
+
+
+
+
+    fetch('https://66681676f53957909ff67af8.mockapi.io/users/Animals').then((response) => response.json()).then((animals) => {
+
+        function CreateOption(name) {
+
+            const option = document.createElement('option');
+            option.innerHTML = name;
+            option.value = name;
+            console.log(name);
+            return option;
+
+        }
+
+
+        let selector = document.getElementById("animal");
+        animals.forEach((animal) => {
+            const name = animal.name;
+            const option = CreateOption(name);
+            selector.appendChild(option);
+        });
+    });
+
+
+
+    // fetch("https://66681676f53957909ff67af8.mockapi.io/users/Animals")
+    // .then((response) => response.json())
+    // .then((Animals) =>{
+    //     function options(name){
+    //         option.innerHTML = name;
+    //         option.value = name;
+    //         console.log(name)
+    //         return option
+    //     }
+    //     let change = document.getElementById('animal')
+    //     animals.forEach((animal) =>{
+    //         const name = animal.name
+    //         const option = options(name)
+    //         change.appendChild(option)
+    //     })
+    
+
+
+    function change_image(value) {
+        fetch('https://66681676f53957909ff67af8.mockapi.io/users/Animals').then((response) => response.json()).then((animals) => {
+            const selected = animals.find(
+                function (change) {
+                    console.log(change);
+                    return change.name === value;
+                });
+            if (selected) {
+                const src = selected.image;
+                const name = selected.name;
+                document.getElementById("img").src = src;
+                // document.getElementById("animal-name").innerHTML = "this ^ is a " + name + " btw.";
+                console.log("image changes");
+            } else {
+                console.error('no image');
+            }
+        })
+
+    }
+    //     const url = "https://66681676f53957909ff67af8.mockapi.io/users/Animals"
+    //    async function getimages() {
+    //     const response  = await fetch (url)
+    //     const catObj = await response.json()
+    //     // console.log('response', images)
+
+        
+    //     const imagechange = catObj[0]
+    //     console.log("catObj", catObj[0].image)
+    //     let x  = document.getElementById('images')
+    //     let creatCat = document.appendChild = ('<option>')
+    //     creatCat.inner
+    //     }
+    //     getimages();
+        
+    //     // const catimage = images[0]
+    //     // console.log( 'catimage', imagechange)
+
+
+    document.getElementById('').addEventListener('submit', function (toForm) {
+            toForm.preventDefault();
+
+            let checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            const checkedValues = Array.from(checkboxes).filter(checkbox => checkbox.checked).map(checkbox => checkbox.value); 
+            const formData = {
+                name: document.getElementById('name').value,
+                age: document.getElementById('age').value,
+                gender: document.getElementById('gender').value,
+                birthDate: document.getElementById('birthDate').value,
+                image: document.getElementById('image').value,
+                description: document.getElementById('description').value,
+                majorUniversity: document.getElementById('majorUniversity').value,
+                siblingsNumber: document.getElementById('siblingsNumber').value,
+                siblingsDescription: document.getElementById('siblingsDescription').value,
+                checkboxes: checkedValues
+            };
+
+            // let name = document.getElementById('name').value;
+            // let age = document.getElementById('age').value;
+            // let gender = document.getElementById('gender').value;
+            // let birthdate = document.getElementById('birthDate').value;
+            // let image = document.getElementById('image').value;
+            // let description = document.getElementById('description').value;
+            // let majorUniversity = document.getElementById('majorUniversity').value;
+            // let siblingsNumber = document.getElementById('siblingsNumber').value;
+            // let siblingsDescription = document.getElementById('siblingsDescription').value;
+
+            localStorage.setItem('userdata', JSON.stringify(formData));
+            Card(formData);
+
+
+            document.getElementById('userForm').reset();
+        });
+
+        function Card(data) {
+
+            const name = document.createElement('h3');
+            name.innerHTML = data.name;
+
+            const Age = document.createElement('p');
+            Age.innerHTML = data.age;
+
+            const gender = document.createElement('p');
+            gender.innerHTML = data.gender;
+
+            const birthdate = document.createElement('p');
+            birthdate.innerHTML = data.birthDate;
+
+            const img = document.createElement('p');
+            img.innerHTML = data.image;
+
+            const des = document.createElement('p');
+            des.innerHTML = data.description;
+
+            const uni = document.createElement('p');
+            uni.innerHTML = data.majorUniversity;
+
+            const siblingsNumber = document.createElement('p');
+            siblingsNumber.innerHTML = data.siblingsNumber;
+
+            const siblingsDes = document.createElement('p');
+            siblingsDes.innerHTML = data.siblingsDescription;
+
+            const coding = document.createElement('p');
+            coding.innerHTML = data.checkboxes; 
+            let con = document.getElementById('cardsContainer');
+
+            con.appendChild(name);
+            con.appendChild(Age);
+            con.appendChild(gender);
+            con.appendChild(birthdate);
+            con.appendChild(img);
+            con.appendChild(des);
+            con.appendChild(uni);
+            con.appendChild(siblingsNumber);
+            con.appendChild(siblingsDes);
+            con.appendChild(coding);
+        }
+        window.onload = function () {
+            const cards = JSON.parse(localStorage.getItem('cards')) || [];
+            cards.forEach.displayCard
+        };
+
+
+
+
+    document.getElementById('form2').addEventListener('submit', function (x) {
+
+
+
+        x.preventDefault();
+
+
+        document.querySelectorAll('.error').forEach(element => element.innerHTML = '');
+
+        const fname = document.getElementById('log1').value;
+        const lname = document.getElementById('log2').value;
+        const bdate = document.getElementById('log3').value;
+        const email = document.getElementById('log4').value;
+
+
+        const confirmEmail = document.getElementById('log5').value;
+        const password = document.getElementById('log6').value;
+        const confirmPassword = document.getElementById('log7').value;
+
+        let all_true = true;
+
+        const nameRegex = /^[a-zA-Z]+$/;
+        const dateRegex = /^(0[1-9]|[12][0-9]|3[01])\.(0[1-9]|1[0-2])\.(19|20)\d\d$/;
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; //IDK if this will work 
+
+
+        if (nameRegex.test(log1) == false) {
+            document.getElementById('fnameError').innerText = ' Numbers are not allowed';
+            all_true = false;
+        }
+
+        if (nameRegex.test(log2) == false) {
+            document.getElementById('lnameError').innerText = ' Numbers are not allowed';
+            all_true = false;
+        }
+
+        if (dateRegex.test(log3) == false) {
+            document.getElementById('bdateError').innerText = 'The format should be dd.mm.yyyy ';
+            all_true = false;
+        }
+
+        if (emailRegex.test(log4) == false) {
+
+            document.getElementById('emailError').innerText = 'The e-mail is not valid';
+            all_true = false;
+        }
+
+        if (log4 !== confirmEmail) {
+
+            document.getElementById('confirmEmailError').innerText = 'Emails do not match';
+            all_true = false;
+        }
+
+        if (log5 !== confirmPassword) {
+            document.getElementById('confirmPasswordError').innerText = 'Passwords do not match';
+            all_true = false;
+        }
+
+        if (all_true) {
+            alert('form submitted !');
+            document.getElementById('myForm').reset();
+        }
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+        
+        // let y = document.getElementById('sub')
+        // let Name;
+        // let name1 = document.getElementById('name')
+        // y.onclick = function(){
+        //     Name= document.getElementById('fname').value;
+        //     console.log('Name', Name)
+        // }
+        // let age;
+        // let age1 = document.getElementById('age')
+        // y.onclick = function(){
+        //     age = document.getElementById('age').value;
+        //     console.log('age', age)
+        // }
+        // let gender;
+        // let gender1 = document.getElementById('gender')
+        // y.onclick = function(){
+        //     gender = document.getElementById('gender').value;
+        //     console.log('gender', gender)
+        // }
+        // let birthday;
+        // let birthday1 = document.getElementById('birth')
+        // y.onclick = function(){
+        //     birthday = document.getElementById('birth').value;
+        //     console.log('birthday', birthday)
+        // }
+        // let Description;
+        // let Description1 = document.getElementById('Description')
+        // y.onclick = function(){
+        //     Description = document.getElementById('Description').value;
+        //     console.log('Description',Description)
+        // }
+        // let Major;
+        // let Major1 = document.getElementById('Major')
+        // y.onclick = function(){
+        //     Major1 = document.getElementById('Major').value;
+        //     console.log('Major', Major)
+        // }
+        // let html;
+        // let html1 = document.getElementById('html')
+        // y.onclick = function(){
+        //     html1 = document.getElementById('html').value;
+        //     console.log('html', html)
+        // }
+        // let css;
+        // let css1 = document.getElementById('css')
+        // y.onclick = function(){
+        //     css = document.getElementById('css').value;
+        //     console.log('css', css)
+        // }
+        // let js;
+        // let js1 = document.getElementById('js')
+        // y.onclick = function(){
+        //     js = document.getElementById('js').value;
+        //     console.log('js', js)
+        // }
+        // let snumber;
+        // let snumber1 = document.getElementById('snumber')
+        // y.onclick = function(){
+        //     snumber = document.getElementById('snumber').value;
+        //     console.log('snumber', snumber)
+        // }
+        // let sdes;
+        // let sdes1 = document.getElementById('sdes')
+        // y.onclick = function (){
+        //     sdes = document.getElementById('sdes').value;
+        //     console.log('sdes',sdes) 
+        // }
+        
+
+
+
+
+
+        
+       
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+    
+</body>
+</html>
